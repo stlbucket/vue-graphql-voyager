@@ -18,11 +18,17 @@ export default {
   methods: {
     introspectionProvider(query) {
       // return fetch('http://localhost:8080/graphql', {
+      console.log('query', query)
       return fetch(window.location.origin + '/graphql', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({query: query}),
-      }).then(response => response.json());
+      }).then(response => response.json())
+      // {
+      //   console.log('response', response)
+      //   console.log('json', response.json())
+      //   return response.json()
+      // });
     }
   }
 }
